@@ -9,6 +9,10 @@ export default async function Page({ params }: { params: { id: string } }) {
     fetchCustomers(),
   ]);
 
+  if (!invoice) {
+    throw new Error('Invoice not found');
+  }
+
   return (
     <main>
       <Breadcrumbs
